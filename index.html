@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate To-Do List</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📌 Ultimate To-Do List</h1>
+    <div class="stats">
+      <span>Score: <span id="score">0</span></span>
+      <span>Level: <span id="level">1</span></span>
+      <span>Streak: <span id="streak">0</span></span>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </header>
+
+  <section class="task-input">
+    <input type="text" id="taskInput" placeholder="งานใหม่...">
+    <input type="datetime-local" id="taskTime">
+    <select id="priority">
+      <option value="low">🟢 Low</option>
+      <option value="medium">🟡 Medium</option>
+      <option value="high">🔴 High</option>
+    </select>
+    <input type="text" id="tagInput" placeholder="Tag">
+    <select id="recurring">
+      <option value="none">No Repeat</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>
+    <button onclick="addTask()">เพิ่มงาน</button>
+  </section>
+
+  <section class="controls">
+    <input type="text" id="filterTag" placeholder="ค้นหาด้วย Tag" oninput="renderTasks()">
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <button onclick="exportTasks()">Export JSON</button>
+  </section>
+
+  <ul id="taskList"></ul>
+  <div id="badgeContainer"></div>
+  <canvas id="confettiCanvas"></canvas>
+
+  <audio id="notifSound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
